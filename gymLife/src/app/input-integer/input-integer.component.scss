@@ -1,0 +1,13 @@
+.input-group {
+    display: flex;
+    align-items: center;
+  
+    input {
+      width: 50px;
+      text-align: center;
+    }
+  
+    .input-group-prepend, .input-group-append {
+      display: flex;
+    }
+  }

@@ -1,0 +1,9 @@
+<div class="input-group">
+    <div class="input-group-prepend">
+      <button class="btn btn-danger bt sm" (click)="restarCantidad()">-</button>
+    </div>
+    <input type="number" class="form-control" [(ngModel)]="cantidad" (change)="cambiarCantidad($event)" />
+    <div class="input-group-append">
+      <button class="btn btn-success bt sm" (click)="sumarCantidad()">+</button>
+    </div>
+  </div>

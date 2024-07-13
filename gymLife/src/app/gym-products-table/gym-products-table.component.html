@@ -1,0 +1,116 @@
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Nombre de Producto</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Stock</th>
+      <th></th>
+      <th>Cantidad</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (membresia of membresias; track membresia.id) {
+      <tr [ngClass]="{'enOferta' : membresia.clearance}">
+        <td >{{ membresia.id }}</td>
+        <td>{{ membresia.nombre_producto }}</td>
+        <td>{{ membresia.descripcion }}</td>
+        <td>{{ membresia.precio | currency }}</td>
+        @if (membresia.stock > 0) {
+          <td>{{ membresia.stock }}</td>
+        } @else {
+          <td>SIN STOCK</td>
+        }
+        <td><img class="img-thumbnail" [src]="membresia.img" alt="{{ membresia.nombre_producto }}" width="100"></td>
+        <td><app-input-integer [(cantidad)]="membresia.cantidad" [max]="membresia.stock" (cantidadChange)="onCantidadChange($event,membresia)"></app-input-integer></td>
+        <td><button class="btn btn-light btn-sm" (click)="anadirAlCarrito(membresia)">Comprar</button></td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="8">No hay membresías disponibles</td>
+      </tr>
+    }
+    @for (clase of clases; track clase.id) {
+      <tr [ngClass]="{'enOferta' : clase.clearance}">
+        <td>{{ clase.id }}</td>
+        <td>{{ clase.nombre_producto }}</td>
+        <td>{{ clase.descripcion }}</td>
+        <td>{{ clase.precio | currency }}</td>
+        @if (clase.stock > 0) {
+          <td>{{ clase.stock }}</td>
+        } @else {
+          <td>SIN STOCK</td>
+        }
+        <td><img class="img-thumbnail" [src]="clase.img" alt="{{ clase.nombre_producto }}" width="100"></td>
+        <td><app-input-integer [(cantidad)]="clase.cantidad" [max]="clase.stock" (cantidadChange)="onCantidadChange($event,clase)"></app-input-integer></td>
+        <td><button class="btn btn-light btn-sm" (click)="anadirAlCarrito(clase)">Comprar</button></td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="8">No hay clases disponibles</td>
+      </tr>
+    }
+    @for (producto of productos; track producto.id) {
+      <tr [ngClass]="{'enOferta' : producto.clearance}">
+        <td>{{ producto.id }}</td>
+        <td>{{ producto.nombre_producto }}</td>
+        <td>{{ producto.descripcion }}</td>
+        <td>{{ producto.precio | currency }}</td>
+        @if (producto.stock > 0) {
+          <td>{{ producto.stock }}</td>
+        } @else {
+          <td>SIN STOCK</td>
+        }
+        <td><img class="img-thumbnail" [src]="producto.img" alt="{{ producto.nombre_producto }}" width="100"></td>
+        <td><app-input-integer [(cantidad)]="producto.cantidad" [max]="producto.stock" (cantidadChange)="onCantidadChange($event,producto)"></app-input-integer></td>
+        <td><button class="btn btn-light btn-sm" (click)="anadirAlCarrito(producto)">Comprar</button></td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="8">No hay productos disponibles</td>
+      </tr>
+    }
+    @for (servicio of servicios; track servicio.id) {
+      <tr [ngClass]="{'enOferta' : servicio.clearance}">
+        <td>{{ servicio.id }}</td>
+        <td>{{ servicio.nombre_producto }}</td>
+        <td>{{ servicio.descripcion }}</td>
+        <td>{{ servicio.precio | currency }}</td>
+        @if (servicio.stock > 0) {
+          <td>{{ servicio.stock }}</td>
+        } @else {
+          <td>SIN STOCK</td>
+        }
+        <td><img class="img-thumbnail" [src]="servicio.img" alt="{{ servicio.nombre_producto }}" width="100"></td>
+        <td><app-input-integer [(cantidad)]="servicio.cantidad" [max]="servicio.stock" (cantidadChange)="onCantidadChange($event,servicio)"></app-input-integer></td>
+        <td><button class="btn btn-light btn-sm" (click)="anadirAlCarrito(servicio)">Comprar</button></td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="8">No hay servicios disponibles</td>
+      </tr>
+    }
+    @for (accesorio of accesorios; track accesorio.id) {
+      <tr [ngClass]="{'enOferta' : accesorio.clearance}">
+        <td class="especialLetra">{{ accesorio.id }}</td>
+        <td>{{ accesorio.nombre_producto }}</td>
+        <td>{{ accesorio.descripcion }}</td>
+        <td>{{ accesorio.precio | currency }}</td>
+        @if (accesorio.stock > 0) {
+          <td>{{ accesorio.stock }}</td>
+        } @else {
+          <td>SIN STOCK</td>
+        }
+        <td><img class="img-thumbnail" [src]="accesorio.img" alt="{{ accesorio.nombre_producto }}" width="100"></td>
+        <td><app-input-integer [(cantidad)]="accesorio.cantidad" [max]="accesorio.stock" (cantidadChange)="onCantidadChange($event,accesorio)"></app-input-integer></td>
+        <td><button class="btn btn-light btn-sm" (click)="anadirAlCarrito(accesorio)">Comprar</button></td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="8">No hay accesorios disponibles</td>
+      </tr>
+    }
+  </tbody>
+</table>

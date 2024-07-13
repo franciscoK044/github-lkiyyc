@@ -1,0 +1,54 @@
+h1{
+    color: blue;
+}
+.clearance {
+    border: 2px solid green;
+    background: lightgreen;
+}
+
+.sinStock{
+    background-color: red;
+    color: white;
+}
+
+.enOferta{
+    background-color: green;
+    color: white;
+}
+
+.sinOferta {
+    background-color: gray;
+}
+
+thead{
+    background-color: #faf9f9;
+    color: rgb(0, 0, 0);
+}
+
+tbody{
+    text-align: left;
+    border-collapse: collapse;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+tr{
+    border-bottom: 1px solid grey;
+}
+
+td{
+    width: 0%;
+    padding: 0%;
+    font-size: 14px;
+    text-align: center;
+    font-family: fantasy;
+}
+
+img{
+    width: 100%;
+    height: 15%;
+    border-radius: 16px;
+}
+.hidden-column {
+    display: none;
+  }  

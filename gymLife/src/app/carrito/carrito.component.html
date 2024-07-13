@@ -1,0 +1,27 @@
+<h3>Carrito de Compras</h3>
+
+<div *ngIf="carritoLista.length > 0; else carritoVacio">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item bg-light" *ngFor="let producto of carritoLista">
+      <div class="row">
+        <div class="col">{{ producto.nombre_producto }}</div>
+        <div class="col">{{ producto.cantidad }}</div>
+        <div class="col">{{ producto.precio | currency }}</div>
+        <div class="col">
+          <button class="btn btn-sm btn-danger" (click)="eliminarDelCarrito(producto)">Eliminar</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="text-right mt-3">
+    <button class="btn btn-danger" (click)="vaciarCarrito()">Vaciar Carrito</button>
+    <p class="mt-2"><strong>Total: {{ total$ | async | currency }}</strong></p>
+  </div>
+</div>
+
+<ng-template #carritoVacio>
+  <div class="text-center p-3">
+    <p class="text-muted"><strong>El carrito está vacío.</strong></p>
+  </div>
+</ng-template>
